@@ -63,12 +63,29 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
     `];
   }
 
+  // 🔹 Lifecycle method to update step order
+  updated() {
+    super.updated();
+    this._updateSteps();
+  }
+
+  _updateSteps() {
+    // Get all slotted step items
+    const slot = this.shadowRoot.querySelector("slot");
+    if (slot) {
+      const steps = slot.assignedElements({ flatten: true }).filter(el => el.tagName === "DDD-STEPS-LIST-ITEM");
+      steps.forEach((step, index) => {
+        step.stepNumber = index + 1; // Dynamically assign step numbers
+      });
+    }
+  }
+
   // Lit render the HTML
   render() {
     return html`
 <div class="wrapper">
   <h3><span>${this.t.title}:</span> ${this.title}</h3>
-  <slot></slot>
+  <slot @slotchange="${this._updateSteps}"></slot>  <!-- 🔹 Ensure steps update dynamically -->
 </div>`;
   }
 
