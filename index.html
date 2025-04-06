@@ -5,42 +5,47 @@
   <base href="/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Demonstration for ddd-steps-list">
+  <meta name="description" content="Demonstration for ddd-steps-list web component" />
+
+  <title>Steps List Demo</title>
 
   <style>
     :root, html, body {
       margin: 0;
       padding: 0;
+      font-family: var(--ddd-font-body, Arial, sans-serif);
+      background: var(--ddd-theme-background, #f9f9f9);
     }
+
     #demo {
-      margin: var(--ddd-spacing-2);
+      max-width: 800px;
+      margin: auto;
+      padding: var(--ddd-spacing-4, 16px);
     }
+
     ddd-steps-list {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
+      margin: var(--ddd-spacing-3, 12px) 0;
+      border: var(--ddd-border-md, 2px solid #ccc);
+      border-radius: var(--ddd-radius-lg, 12px);
+      transition: box-shadow 0.3s ease;
     }
+
     ddd-steps-list:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
+      box-shadow: var(--ddd-boxShadow-sm, 0 2px 6px rgba(0, 0, 0, 0.1));
     }
-    #example {
-      --ddd-steps-list-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
+
+    h1 {
+      font-size: var(--ddd-font-size-xl, 2rem);
+      color: var(--ddd-theme-primary, #333);
     }
   </style>
-  <title>ddd-steps-list</title>
 </head>
 
 <body>
   <div id="demo">
-    <h1>ddd-steps-list</h1>
+    <h1>Enrollment Steps</h1>
 
-    
-
-    
-    
-    <ddd-steps-list>
+    <ddd-steps-list title="Enrollment Process">
       <ddd-steps-list-item title="Choose Enrollment Period">
         <p>You need to complete this step before Fall 2025.</p>
       </ddd-steps-list-item>
@@ -54,7 +59,7 @@
   </div>
 
   <script type="module" src="./ddd-steps-list.js"></script>
-  <script type="module" src="./ddd-steps-list-item.js"></script> <!-- ✅ Include ddd-steps-list-item -->
-
+  <script type="module" src="./ddd-steps-list-item.js"></script>
 </body>
+
 </html>

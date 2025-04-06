@@ -2,7 +2,7 @@ import { LitElement, html, css } from "lit";
 
 /**
  * `ddd-steps-list-item`
- * 
+ *
  * @element ddd-steps-list-item
  */
 export class DddStepsListItem extends LitElement {
@@ -13,13 +13,13 @@ export class DddStepsListItem extends LitElement {
   constructor() {
     super();
     this.title = "Step";
-    this.step = 1; // Default step number
+    this.stepNumber = 1;
   }
 
   static get properties() {
     return {
       title: { type: String },
-      step: { type: Number },
+      stepNumber: { type: Number },
     };
   }
 
@@ -27,22 +27,54 @@ export class DddStepsListItem extends LitElement {
     return css`
       :host {
         display: block;
-        padding: var(--ddd-spacing-3);
-        border: var(--ddd-border-sm);
-        background: var(--ddd-theme-light);
-        font-family: var(--ddd-font-body);
+        padding: var(--ddd-spacing-3, 16px);
+        border: var(--ddd-border-sm, 1px solid #ccc);
+        background: var(--ddd-theme-light, #f9f9f9);
+        font-family: var(--ddd-font-body, sans-serif);
+        margin-bottom: var(--ddd-spacing-2, 12px);
       }
+
+      .step-container {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--ddd-spacing-2, 12px);
+      }
+
+      .step-circle {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: var(--ddd-theme-primary, #007bff);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+
+      .step-content {
+        flex: 1;
+      }
+
       .step-header {
         font-weight: bold;
-        color: var(--ddd-theme-primary);
+        color: var(--ddd-theme-primary, #007bff);
+        margin-bottom: 4px;
       }
     `;
   }
 
   render() {
     return html`
-      <div class="step-header">Step ${this.step}: ${this.title}</div>
-      <slot></slot>
+      <div class="step-container">
+        <div class="step-circle">${this.stepNumber}</div>
+        <div class="step-content">
+          <div class="step-header">${this.title}</div>
+          <slot></slot>
+        </div>
+      </div>
     `;
   }
 }
