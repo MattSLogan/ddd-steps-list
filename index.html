@@ -1,59 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <base href="/">
-  <meta charset="utf-8">
+  <base href="/" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Demonstration for ddd-steps-list web component" />
-
-  <title>Steps List Demo</title>
+  <meta name="Description" content="Demonstration for ddd-steps-list" />
 
   <style>
     :root, html, body {
       margin: 0;
       padding: 0;
-      font-family: var(--ddd-font-body, Arial, sans-serif);
-      background: var(--ddd-theme-background, #f9f9f9);
     }
-
-    #demo {
-      max-width: 800px;
-      margin: auto;
-      padding: var(--ddd-spacing-4, 16px);
-    }
-
-    ddd-steps-list {
-      margin: var(--ddd-spacing-3, 12px) 0;
-      border: var(--ddd-border-md, 2px solid #ccc);
-      border-radius: var(--ddd-radius-lg, 12px);
-      transition: box-shadow 0.3s ease;
-    }
-
-    ddd-steps-list:hover {
-      box-shadow: var(--ddd-boxShadow-sm, 0 2px 6px rgba(0, 0, 0, 0.1));
-    }
-
     h1 {
-      font-size: var(--ddd-font-size-xl, 2rem);
-      color: var(--ddd-theme-primary, #333);
+      color: var(--ddd-theme-default-beaverBlue);
+      text-align: center;
+    }
+    ul.ddd-steps-list-bullets {
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+    p, ul, li {
+      padding-left: 90px;
+    }
+    ddd-steps-list-item {
+      display: block;
+      flex-wrap: wrap;
+    }
+    .content {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: -36px;
+    }
+    .imgcaption {
+      font-size: small;
+      margin-left: 50px;
+    }
+    #items img {
+      width: 50%;
+      height: 50%;
+      display: block;
+      margin-left: 140px;
     }
   </style>
+
+  <title>ddd-steps-list</title>
 </head>
-
 <body>
-  <div id="demo">
-    <h1>Enrollment Steps</h1>
+  <h1>Start Planning Your Unique College Experience at Penn State</h1>
+  <p>
+    Take the next steps toward a future at Penn State. Choose an enrollment period that works for you,
+    submit your application to one of the two websites, and then sit back and relax while you wait to
+    accept your offer.
+  </p>
 
-    <ddd-steps-list title="Enrollment Process">
-      <ddd-steps-list-item title="Choose Enrollment Period">
-        <p>You need to complete this step before Fall 2025.</p>
+  <div id="items">
+    <ddd-steps-list>
+      <p>This will be removed</p>
+
+      <ddd-steps-list-item title="Choose your enrollment period">
+        <div class="content">
+          <p>Decide whether you want to start in Summer or Fall, or Spring.</p>
+          <ul class="ddd-steps-list-bullets">
+            <li>Summer 2024</li>
+            <li>Fall 2024 / Spring 2025</li>
+            <li>Check your program to make sure you are accepted when you plan to start</li>
+          </ul>
+        </div>
       </ddd-steps-list-item>
+
       <ddd-steps-list-item title="Submit Application">
-        <p>Make sure to upload all necessary documents.</p>
+        <div class="content">
+          <p>Use the Common App or the Penn State application on their website.</p>
+          <ul class="ddd-steps-list-bullets">
+            <li>Start your application early and ensure that all your information is correct</li>
+            <li>Visit <a href="https://www.psu.edu/admission/undergraduate/how-to-apply" target="_blank">Apply to PSU </a> if you plan on applying on the PSU website</li>
+          </ul>
+        </div>
       </ddd-steps-list-item>
-      <ddd-steps-list-item title="Confirm Enrollment">
-        <p>Finalize your registration to secure your spot at the University.</p>
+
+      <ddd-steps-list-item title="Accept Your Offer and Plan Your Future">
+        <div class="content">
+          <p>Once admitted into Penn State, accept your offer to the University in MyPennState</p>
+          <ul class="ddd-steps-list-bullets">
+            <li>Plan an enrollment deposit</li>
+            <li>Look for housing details as well as New Student Orientation information</li>
+          </ul>
+        </div>
+        <img src="https://i2.wp.com/images.onwardstate.com/uploads/2018/04/Image-uploaded-from-iOS.jpg?resize=1547%2C1160&ssl=1
+        " alt="Penn State Logo" style="max-width: 100%; height: auto;" />
+        <p class="imgcaption">
+          Penn State students come together and study in the stacks - located in the Pattee and Paterno libraries.
+        </p>
       </ddd-steps-list-item>
     </ddd-steps-list>
   </div>
@@ -61,5 +98,4 @@
   <script type="module" src="./ddd-steps-list.js"></script>
   <script type="module" src="./ddd-steps-list-item.js"></script>
 </body>
-
 </html>
